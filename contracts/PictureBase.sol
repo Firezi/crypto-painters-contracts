@@ -1,6 +1,7 @@
 pragma solidity ^0.4.24;
+import "./PictureAccessControl.sol";
 
-contract PictureBase {
+contract PictureBase is PictureAccessControl {
     event PictureCreation(address creator, uint256 pictureId, uint hash, uint frameSeed);
 
     event Transfer(address from, address to, uint256 tokenId);
