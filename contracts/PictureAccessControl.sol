@@ -1,6 +1,6 @@
 pragma solidity ^0.4.24;
 
-contract PaintersAccessControl {
+contract PictureAccessControl {
     address public ceoAddress;
 
     bool public paused = false;
