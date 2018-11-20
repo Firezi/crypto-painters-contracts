@@ -58,7 +58,7 @@ contract PictureOwnerShip is PictureBase, ERC721 {
         return pictureIndexToOwner[_tokenId];
     }
 
-    function tokensOfOwner(address _owner) external view returns(uint256[]) {
+    function tokensOfOwner(address _owner) external view returns (uint256[]) {
         uint256 tokenCount = balanceOf(_owner);
 
         if (tokenCount == 0) {
