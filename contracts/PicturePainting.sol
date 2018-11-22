@@ -1,9 +1,9 @@
 pragma solidity ^0.4.0;
 
-import "./PictureOwnerShip.sol";
+import "./PictureBounty.sol";
 import "./FrameGenerationInterface.sol";
 
-contract PicturePainting is PictureOwnerShip {
+contract PicturePainting is PictureBounty {
     uint256 canvasCost;
 
     FrameGenerationInterface public frameGenerator;
