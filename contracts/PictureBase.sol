@@ -19,7 +19,7 @@ contract PictureBase is PictureAccessControl {
 
     mapping (uint256 => address) public pictureIndexToOwner;
 
-    mapping (address => uint256) ownershipTokenCount;
+    mapping (address => uint256) public ownershipTokenCount;
 
     mapping (uint256 => address) public pictureIndexToApproved;
 
