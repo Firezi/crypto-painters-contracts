@@ -21,7 +21,7 @@ contract PictureBounty is PictureOwnerShip {
     }
     BountyFrame[] public bountyFrames;
 
-    function giveBountyCanvas(address _to, uint32 _amount) external onlyCEO {
+    function giveBountyCanvas(address _to, uint32 _amount) external onlyCOO {
         require(_amount + totalBountyCanvasAmount > totalBountyCanvasAmount);
         require(_amount + totalBountyCanvasAmount <= BOUNTY_CANVAS_LIMIT);
 
@@ -31,7 +31,7 @@ contract PictureBounty is PictureOwnerShip {
         emit BountyCanvasGifted(_to, _amount);
     }
 
-    function giveBountyFrame(address _to, uint256 _frameSeed) external onlyCEO {
+    function giveBountyFrame(address _to, uint256 _frameSeed) external onlyCOO {
         require (totalBountyFrameAmount < BOUNTY_FRAME_LIMIT);
 
         BountyFrame memory _bountyFrame = BountyFrame({

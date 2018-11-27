@@ -10,7 +10,7 @@ contract PicturePainting is PictureBounty {
     FrameGenerationInterface public frameGenerator;
     FrameSellInterface public frameSell;
 
-    function setFrameGeneratorAddress(address _address) external onlyCEO {
+    function setFrameGeneratorAddress(address _address) external onlyCTO {
         FrameGenerationInterface candidateContract = FrameGenerationInterface(_address);
 
         require(candidateContract.isFrameGenerationInterface());
@@ -18,7 +18,7 @@ contract PicturePainting is PictureBounty {
         frameGenerator = candidateContract;
     }
 
-    function setFrameSellAddress(address _address) external onlyCEO {
+    function setFrameSellAddress(address _address) external onlyCTO {
         FrameSellInterface candidateContract = FrameSellInterface(_address);
 
         require(candidateContract.isFrameSellInterface());
@@ -122,6 +122,4 @@ contract PicturePainting is PictureBounty {
 
         return pictureId;
     }
-
-
 }
