@@ -37,19 +37,19 @@ contract PicturePainting is PictureBounty {
     {
         require(msg.value >= canvasCost || bountyCanvasAmount[msg.sender] > 0);
 
-        uint256 balance = msg.value;
+        uint256 excess = msg.value;
         if (bountyCanvasAmount[msg.sender] > 0) {
             bountyCanvasAmount[msg.sender]--;
         } else {
-            balance -= canvasCost;
+            excess -= canvasCost;
         }
 
         uint256 frameSeed = frameGenerator.genFrame(msg.sender, _pictureHash);
 
         uint256 pictureId = _createPicture(msg.sender, _name, _pictureHash, frameSeed);
 
-        if (balance > 0) {
-            msg.sender.transfer(balance);
+        if (excess > 0) {
+            msg.sender.transfer(excess);
         }
 
         return pictureId;
@@ -67,23 +67,23 @@ contract PicturePainting is PictureBounty {
     {
         require(msg.value >= canvasCost || bountyCanvasAmount[msg.sender] > 0);
 
-        uint256 balance = msg.value;
+        uint256 excess = msg.value;
         if (bountyCanvasAmount[msg.sender] > 0) {
             bountyCanvasAmount[msg.sender]--;
         } else {
-            balance -= canvasCost;
+            excess -= canvasCost;
         }
 
         bool framePaid;
         uint256 frameSeed;
-        (framePaid, frameSeed, balance) = frameSell.getFrame(_frameId, balance);
+        (framePaid, frameSeed, excess) = frameSell.getFrame(_frameId, excess);
 
         require(framePaid);
 
         uint256 pictureId = _createPicture(msg.sender, _name, _pictureHash, frameSeed);
 
-        if (balance > 0) {
-            msg.sender.transfer(balance);
+        if (excess > 0) {
+            msg.sender.transfer(excess);
         }
 
         return pictureId;
@@ -102,11 +102,11 @@ contract PicturePainting is PictureBounty {
         require(msg.value >= canvasCost || bountyCanvasAmount[msg.sender] > 0);
         require(_frameId < bountyFrames.length);
 
-        uint256 balance = msg.value;
+        uint256 excess = msg.value;
         if (bountyCanvasAmount[msg.sender] > 0) {
             bountyCanvasAmount[msg.sender]--;
         } else {
-            balance -= canvasCost;
+            excess -= canvasCost;
         }
 
         require(bountyFrames[_frameId].recipient == msg.sender);
@@ -116,8 +116,8 @@ contract PicturePainting is PictureBounty {
 
         uint256 pictureId = _createPicture(msg.sender, _name, _pictureHash, frameSeed);
 
-        if (balance > 0) {
-            msg.sender.transfer(balance);
+        if (excess > 0) {
+            msg.sender.transfer(excess);
         }
 
         return pictureId;
