@@ -16,6 +16,7 @@ contract PictureBounty is PictureOwnerShip {
 
     struct BountyFrame {
         uint256 frameSeed;
+        uint256 unlockTime;
         address recipient;
         bool isUsed;
     }
@@ -31,11 +32,12 @@ contract PictureBounty is PictureOwnerShip {
         emit BountyCanvasGifted(_to, _amount);
     }
 
-    function giveBountyFrame(address _to, uint256 _frameSeed) external onlyCOO {
+    function giveBountyFrame(address _to, uint256 _frameSeed, uint256 lockTime) external onlyCOO {
         require (totalBountyFrameAmount < BOUNTY_FRAME_LIMIT);
 
         BountyFrame memory _bountyFrame = BountyFrame({
             frameSeed: _frameSeed,
+            unlockTime: now + lockTime,
             recipient: _to,
             isUsed: false
         });

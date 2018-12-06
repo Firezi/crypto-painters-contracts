@@ -110,6 +110,7 @@ contract PicturePainting is PictureBounty {
         }
 
         require(bountyFrames[_frameId].recipient == msg.sender);
+        require(bountyFrames[_frameId].unlockTime < now);
         bountyFrames[_frameId].isUsed = true;
 
         uint256 frameSeed = bountyFrames[_frameId].frameSeed;
