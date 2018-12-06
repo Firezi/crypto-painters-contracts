@@ -5,7 +5,7 @@ contract PictureAccessControl {
     address public ctoAddress;
     address public cooAddress;
 
-    bool public paused = false;
+    bool public paused;
 
     modifier onlyCEO() {
         require(msg.sender == ceoAddress);
