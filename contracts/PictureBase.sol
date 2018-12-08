@@ -15,7 +15,7 @@ contract PictureBase is PictureAccessControl {
         uint256 frameSeed;
     }
 
-    Picture[] pictures;
+    Picture[] public pictures;
 
     mapping (uint256 => address) public pictureIndexToOwner;
 

@@ -8,7 +8,7 @@ contract PictureSale is PicturePainting {
         uint256 price;
     }
 
-    uint256 saleCut;
+    uint256 public saleCut;
 
     mapping (uint256 => Sale) public tokenIdToSale;
 

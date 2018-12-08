@@ -5,7 +5,7 @@ import "./FrameGenerationInterface.sol";
 import "./FrameSellInterface.sol";
 
 contract PicturePainting is PictureBounty {
-    uint256 canvasCost;
+    uint256 public canvasCost;
 
     FrameGenerationInterface public frameGenerator;
     FrameSellInterface public frameSell;
