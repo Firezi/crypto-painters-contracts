@@ -60,7 +60,7 @@ contract PictureSale is PicturePainting {
     }
 
     function cancelSale(uint256 _tokenId) external whenNotPaused {
-        Sale storage sale = tokenIdToSale[_tokenId];
+        Sale memory sale = tokenIdToSale[_tokenId];
 
         require(_isOnSale(_tokenId));
         require(sale.seller == msg.sender);
