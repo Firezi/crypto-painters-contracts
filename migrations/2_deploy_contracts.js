@@ -23,6 +23,9 @@ module.exports = function (deployer) {
         .then(function(instance) {
             frameSell = instance;
 
+            core.setCTO("0xbbd14e13bef663e1066a42e2079f8f05d636bffb");
+            core.setCOO("0xbbd14e13bef663e1066a42e2079f8f05d636bffb");
+
             core.setFrameGeneratorAddress(generation.address);
             core.setFrameSellAddress(frameSell.address);
 
