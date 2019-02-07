@@ -3,7 +3,7 @@ pragma solidity ^0.4.24;
 import "./PictureAccessControl.sol";
 
 contract PictureBase is PictureAccessControl {
-    event PictureCreation(address creator, uint256 pictureId, uint256 hash, uint256 frameSeed);
+    event PictureCreation(address creator, uint256 pictureId, string hash, uint256 frameSeed);
 
     event Transfer(address from, address to, uint256 tokenId);
 
@@ -11,7 +11,7 @@ contract PictureBase is PictureAccessControl {
         address creator;
         string name;
         uint64 creationTime;
-        uint256 hash;
+        string hash;
         uint256 frameSeed;
     }
 
@@ -35,7 +35,7 @@ contract PictureBase is PictureAccessControl {
         emit Transfer(_from, _to, _tokenId);
     }
 
-    function _createPicture(address _creator, string _name, uint256 _hash, uint256 _frameSeed) internal returns (uint)
+    function _createPicture(address _creator, string _name, string _hash, uint256 _frameSeed) internal returns (uint)
     {
         Picture memory _picture = Picture({
             creator: _creator,

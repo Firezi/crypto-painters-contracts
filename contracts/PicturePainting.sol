@@ -28,7 +28,7 @@ contract PicturePainting is PictureBounty {
 
     function createPictureWithRandomFrame(
         string _name,
-        uint256 _pictureHash
+        string _pictureHash
     )
         external
         whenNotPaused
@@ -57,7 +57,7 @@ contract PicturePainting is PictureBounty {
 
     function createPictureWithPaidFrame(
         string _name,
-        uint256 _pictureHash,
+        string _pictureHash,
         uint256 _frameId
     )
         external
@@ -91,7 +91,7 @@ contract PicturePainting is PictureBounty {
 
     function createPictureWithBountyFrame(
         string _name,
-        uint256 _pictureHash,
+        string _pictureHash,
         uint256 _frameId
     )
     external

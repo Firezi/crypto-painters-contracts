@@ -32,7 +32,7 @@ contract PictureCore is PictureSale {
         address creator,
         string name,
         uint256 creationTime,
-        uint256 hash,
+        string hash,
         bytes32 frameSeed,
         address owner,
         bool onSale
