@@ -10,7 +10,8 @@ contract PictureBounty is PictureOwnerShip {
     uint32 public totalBountyFrameAmount = 0;
 
     event BountyCanvasGifted(address to, uint32 amount);
-    event BountyFrameGifted(address to, uint256 frameSeed);
+    event BountyFrameGifted(uint256 id, address to, uint256 frameSeed);
+    event BountyFrameUsed(uint256 id);
 
     mapping (address => uint32) public bountyCanvasAmount;
 
@@ -45,6 +46,6 @@ contract PictureBounty is PictureOwnerShip {
         bountyFrames.push(_bountyFrame);
         totalBountyFrameAmount++;
 
-        emit BountyFrameGifted(_to, _frameSeed);
+        emit BountyFrameGifted(totalBountyFrameAmount - 1, _to, _frameSeed);
     }
 }

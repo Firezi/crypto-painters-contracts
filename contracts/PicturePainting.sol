@@ -113,6 +113,8 @@ contract PicturePainting is PictureBounty {
         require(bountyFrames[_frameId].unlockTime < now);
         bountyFrames[_frameId].isUsed = true;
 
+        emit BountyFrameUsed(_frameId);
+
         uint256 frameSeed = bountyFrames[_frameId].frameSeed;
 
         uint256 pictureId = _createPicture(msg.sender, _name, _pictureHash, frameSeed);
