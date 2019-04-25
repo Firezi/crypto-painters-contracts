@@ -18,7 +18,7 @@ contract PictureCore is PictureSale {
     function setCanvasCost(uint256 _cost) external onlyCOO {
         canvasCost = _cost;
     }
-gg
+
     function setSaleCut(uint256 _cut) external onlyCOO {
         require(_cut <= 10000);
         saleCut = _cut;
